@@ -1,0 +1,10 @@
+@mixin box-shadow($hoffset, $voffset, $blur, $spread, $color) {
+  -webkit-box-shadow: $hoffset $voffset $blur $spread $color;
+  -moz-box-shadow: $hoffset $voffset $blur $spread $color;
+  box-shadow: $hoffset $voffset $blur $spread $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "todoId": "",
+        "title": "Cooking",
+        "todoItem": "Cook food for 8 people",
+        "author": "Aadesh",
+        "date": "2018-02-12"
+    },
+    {
+        "todoId": "",
+        "title": "Grocery",
+        "todoItem": "Get Milk, Curd and Bread",
+        "author": "Bhumika",
+        "date": "2018-02-13"
+    },
+    {
+        "todoId": "",
+        "title": "Cleaning",
+        "todoItem": "Kitchen, wash basin and bathtub",
+        "author": "Aadesh",
+        "date": "2018-02-14"
+    },
+    {
+        "todoId": "",
+        "title": "Laundry",
+        "todoItem": "Take the pillow covers, bedsheets and curtains",
+        "author": "Bhumika",
+        "date": "2018-02-15"
+    },
+    {
+        "todoId": "",
+        "title": "Bills",
+        "todoItem": "Pay the electricity and Wi-fi bills",
+        "author": "Bhumika",
+        "date": "2018-02-16"
+    }
+]

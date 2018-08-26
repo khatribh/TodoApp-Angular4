@@ -1,0 +1,74 @@
+<div id="mainContent" class="mainContent">
+  <h1>{{ mainHeader }}</h1>
+  <div class="clearfix">
+    <!-- Todo Items List -->
+    <div class="left-section">
+      <h2>{{ leftTitle }}</h2>
+      <div id="todoLists">
+        <div *ngFor="let todo of todoLists">
+          <h3>{{ todo.title }}</h3>
+          <p>{{ todo.todoItem }}</p>
+          <i>Created By: {{ todo.author }}</i>
+          <i>Date: {{ todo.date | date: 'longDate' }} </i>
+          <button class="editBtn fa" (click)="updateTodoItem(todo)">Edit</button>
+          <button class="deleteBtn fa" (click)="deleteTodoItem(todo.todoId)">Delete</button>
+        </div>
+      </div>
+      <div *ngIf="listEmpty">
+        <h4 class="error">{{error}}</h4>
+      </div>
+    </div>
+
+    <!-- Add/Update Todo Item form -->
+    <div class="right-section">
+      <h2>{{ rightTitle }}</h2>
+      <form method="post" id="todoListForm" (ngSubmit)="saveTodoList()" #f="ngForm">
+        <label for="title">
+          Title
+          <span class="required">*</span>
+        </label>
+        <input type="text" ngModel id="title" name="title" #title="ngModel" required="required">
+        <span class="help-block" *ngIf="!title.valid && title.touched">
+          Please enter title!
+        </span>
+        <label for="todoItem">
+          Todo Item
+          <span class="required">*</span>
+        </label>
+        <textarea id="todoItem" ngModel name="todoItem" rows="3" #todoItem="ngModel" required="required"></textarea>
+        <span class="help-block" *ngIf="!todoItem.valid && todoItem.touched">
+          Please enter todoItem!
+        </span>
+        <label for="author">
+          Author
+          <span class="required">*</span>
+        </label>
+        <select id="author" ngModel #author="ngModel" name="author" required="required">
+          <option *ngFor="let author of authorList" value="{{ author }}">{{ author }}</option>
+        </select>
+        <span class="help-block" *ngIf="!author.valid && author.touched">
+          Please select author!
+        </span>
+        <label for="date">
+          Date
+          <span class="required">*</span>
+        </label>
+        <input type="date" id="date" ngModel #date="ngModel" name="date" required="required">
+        <span class="help-block" *ngIf="!date.valid && date.touched">
+          Please enter date!
+        </span>
+        <input type="hidden" id="todoId" ngModel #todoId="ngModel" name="todoId" value="">
+        <input type="submit" name="action" value="Add/Update Todo Item" id="addBtn" [disabled]="!f.valid">
+      </form>
+      <div *ngIf="addItem">
+        <h4 class="success">{{success}}</h4>
+      </div>
+      <div *ngIf="updateItem">
+        <h4 class="success">{{success}}</h4>
+      </div>
+      <div *ngIf="enterVal">
+        <h4 class="error">{{error}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
